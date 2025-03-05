@@ -7,11 +7,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<title>ISAVIA Point Cloud Viewer</title>
 
-	<link rel="stylesheet" type="text/css" href="./libs/potree/potree.css">
-	<link rel="stylesheet" type="text/css" href="./libs/jquery-ui/jquery-ui.min.css">
-	<link rel="stylesheet" type="text/css" href="./libs/openlayers3/ol.css">
-	<link rel="stylesheet" type="text/css" href="./libs/spectrum/spectrum.css">
-	<link rel="stylesheet" type="text/css" href="./libs/jstree/themes/mixed/style.css">
+	<!-- Load Potree and dependencies from CDN -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/potree@1.7/build/potree/potree.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-ui@1.12.1/jquery-ui.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/openlayers@3.20.1/build/ol.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectrum@1.8.0/spectrum.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.8/dist/themes/default/style.min.css">
 	<link rel="stylesheet" type="text/css" href="./src/desktop.css">
 
 	<style>
@@ -122,20 +123,24 @@
 	</span>
 
 	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+	<!-- Load Potree and dependencies from CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.1.1/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/spectrum@1.8.0/spectrum.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery-ui@1.12.1/jquery-ui.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4/src/Tween.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/d3@4.13.0/build/d3.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/proj4@2.5.0/dist/proj4.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/openlayers@3.20.1/build/ol.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/i18next@11.3.2/dist/umd/i18next.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jstree@3.3.8/dist/jstree.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/potree@1.7/build/potree/potree.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/plasio@0.1.1/js/laslaz.js"></script>
 
-	<script src="./libs/jquery/jquery-3.1.1.min.js"></script>
-	<script src="./libs/spectrum/spectrum.js"></script>
-	<script src="./libs/jquery-ui/jquery-ui.min.js"></script>
-	<script src="./libs/other/BinaryHeap.js"></script>
-	<script src="./libs/tween/tween.min.js"></script>
-	<script src="./libs/d3/d3.js"></script>
-	<script src="./libs/proj4/proj4.js"></script>
-	<script src="./libs/openlayers3/ol.js"></script>
-	<script src="./libs/i18next/i18next.js"></script>
-	<script src="./libs/jstree/jstree.js"></script>
-	<script src="./libs/potree/potree.js"></script>
-	<script src="./libs/plasio/js/laslaz.js"></script>
-
+	<!-- Your custom scripts -->
+	<script>
+		if (typeof module === 'object') {window.module = module; module = undefined;}
+	</script>
+	
 		<script>
 		let elSplatQuality = $("#converter_choice");
 		elSplatQuality.selectgroup({title: "Converter Choice"});
@@ -326,7 +331,7 @@
 			viewer.fitToScreen();
 		});
 
-		Potree.loadPointCloud("./pointcloud/istak_part3/metadata.json", "Ístak Demantssvæði Test2", function(e){
+		Potree.loadPointCloud("./pointcloud/istak_part3/metadata.json", "Ístak Demantssvæði Test3", function(e){
 			viewer.scene.addPointCloud(e.pointcloud);
 			e.pointcloud.position.z = 0;
 			let material = e.pointcloud.material;
